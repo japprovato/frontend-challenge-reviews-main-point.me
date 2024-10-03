@@ -6,7 +6,6 @@ import styles from "./reviewItem.module.css";
 const ReviewItem = ({review} : {review: Review}) => {
   return (
     <div key={review.id} className={styles.reviewItem}>
-      <b>Review</b>
       <div><b>Author:</b> {review.author}</div>
       <div><b>Rating:</b> 
         {Array.from({ length: 5 }).map((_, index) => (
