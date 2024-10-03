@@ -9,7 +9,7 @@ const ReviewItem = ({review} : {review: Review}) => {
       <div><b>Author:</b> {review.author}</div>
       <div><b>Rating:</b> 
         {Array.from({ length: 5 }).map((_, index) => (
-            <Star starId={index} marked={review.rating > index} />
+            <Star size={"small"} starId={index} marked={review.rating > index} />
         ))}
       </div>
       {review.review && <div>{review.review}</div>}
