@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Review from "@/data/Review";
+import Star from "@/components/Star";
 import styles from "./reviewItem.module.css";
 
 const ReviewItem = ({review} : {review: Review}) => {
-  console.log('reviewItem: ', review);
   return (
     <div key={review.id} className={styles.reviewItem}>
       <b>Review</b>
       <div><b>Author:</b> {review.author}</div>
-      <div><b>Rating:</b> {review.rating}</div>
+      <div><b>Rating:</b> 
+        {Array.from({ length: 5 }).map((_, index) => (
+            <Star starId={index} marked={review.rating > index} />
+        ))}
+      </div>
       {review.review && <div>{review.review}</div>}
-
     </div>
   );
 };
